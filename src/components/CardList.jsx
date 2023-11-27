@@ -70,8 +70,8 @@ const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    width: 400px;
     height: 450px;
+    width: 400px;
     background-color: #ffebc1;
 
     border-radius: 20px;
