@@ -1,17 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CardList from "../components/CardList";
 import breadlogo from "../assets/breadMain.jpeg";
 import headerimg from "../assets/Bread1.jpeg";
+import { onAuthStateChanged } from "firebase/auth";
+import { useSelector } from "react-redux";
+import { auth } from "../firebase";
 
 function Home() {
     const navigate = useNavigate();
     const [theme, setTheme] = useState("light");
 
+    const userState = useSelector((state) => state.user);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            console.log("user", user);
+        });
+    }, []);
+
     const themeToggler = () => {
         theme === "light" ? setTheme("dark") : setTheme("light");
+    };
+
+    const onStartNewPostHandler = () => {
+        navigate("/write");
     };
 
     return (
@@ -36,7 +51,7 @@ function Home() {
             </HomeHeader>
             <HeaderImgContainer className="header-image">
                 <img src={headerimg} />
-                <button onClick={() => navigate("/write")}>
+                <button onClick={onStartNewPostHandler}>
                     빵 소개하러 가기
                 </button>
             </HeaderImgContainer>

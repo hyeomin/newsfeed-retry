@@ -44,8 +44,6 @@ export default function Login({ setUsers, users }) {
                 email,
                 password
             );
-
-            alert("로그인 되었습니다.");
             const user = userCredential.user;
             const loginUser = {
                 id: user.uid,
@@ -58,7 +56,7 @@ export default function Login({ setUsers, users }) {
             setUsers(loginUser);
 
             localStorage.setItem("user", JSON.stringify(loginUser));
-
+            alert("로그인 되었습니다.");
             navigate("/");
         } catch (error) {
             console.error(error);
