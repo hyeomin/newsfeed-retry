@@ -15,6 +15,9 @@ export const logoutUser = () => {
 // reducers/userReducer.js
 const initialState = {
     user: null,
+    id: "",
+    email: "",
+    nickname: "",
     isdone: false,
 };
 

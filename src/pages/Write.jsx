@@ -14,6 +14,7 @@ function Write({ users }) {
         { id: 4, name: "베이글" },
         { id: 5, name: "타르트" },
         { id: 6, name: "카스테라" },
+        { id: 7, name: "기타" },
     ];
 
     const [title, setTitle] = useState("");
